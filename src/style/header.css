@@ -1,0 +1,57 @@
+.header__items{
+    background: black;
+    display: flex;
+}
+
+.header__logo{
+    width: 243px;
+    background: white;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    flex-shrink: 0;
+    color: black;
+    font-size: 20px;
+}
+
+.header__items-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 40px;
+}
+
+.header__items-section .row{
+    gap: 30px;
+}
+
+.header__curr-position{
+    color: white;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.header__search{
+    display: flex;
+    gap: 10px;
+}
+
+.header__search input, header button{
+    height: 30px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.header__search input{
+    width: 240px;
+    padding: 0 7px;
+}
+
+header button{
+    width: 100px;
+    cursor: pointer;
+    background: #c6c6c6;
+    border: none;
+
+}

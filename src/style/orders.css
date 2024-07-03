@@ -1,0 +1,64 @@
+.orders__card{
+    background: rgba(148, 148, 148, 0.718);
+    padding: 10px;
+}
+
+.orders{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.orders__card button{
+    width: 280px;
+    height: 30px;
+    background: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.orders__card-control{
+    display: flex;
+    gap: 5px;
+    padding: 21px 0 0 0;
+}
+
+.orders__card-control.btns button{
+    width: 90px;
+}
+
+.orders__card-control.btns button:nth-child(1){
+  background: green;
+  color: black;
+}
+.orders__card-control.btns button:nth-child(2){
+    background: yellow;
+  color: black;
+
+  }
+  .orders__card-control.btns button:nth-child(3){
+    background: red;
+  color: black;
+
+  }
+  .orders__card span{
+    background: green;
+    width: 264px;
+    height: 30px;
+    color: black;
+    border: none;
+    text-align: center;
+    line-height: 30px;
+  }
+
+  .orders__card:nth-of-type(2) .row span{
+  background: yellow;
+}
+.orders__card .row:nth-of-type(2) {
+    align-items: flex-end;
+  }
+
+.orders__card:nth-of-type(3) .row span{
+    background: red;
+  }

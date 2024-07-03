@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>ADMIN-CROSS.COM</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./src/style/header.css">
+    <link rel="stylesheet" href="./src/style/all-products.css">
+    <link rel="stylesheet" href="./src/style/modal__edit-prod.css">
+    <link rel="stylesheet" href="./src/style/main.css">
+</head>
+<body>
+    <div class="loader">
+		<img src="./src/img/loader.png" alt="loading...">
+	</div>
+
+    
+
+    <header>
+		<div class="container">
+			<div class="header__items">
+				<div class="header__logo">
+					<a href="./index.html">CROSS.COM ADMIN</a>
+				</div>
+
+				<div class="header__items-section">
+					<div class="row">
+						<p class="header__curr-position">ALL PRODUCTS</p>
+
+						<form class="header__search">
+							<input type="text" placeholder="SEARCH  PRODUCT!">
+							<button>GO</button>
+						</form>
+					</div>
+
+					<button class="header__btn-add">ADD</button>
+				</div>
+			</div>
+		</div>
+    </header>
+
+    <main>
+     <div class="container">
+        <div class="main__box">
+            <nav class="main__menu navigation">
+                <a href="./index.html" class="navigation__link">
+                    <img src="./src/img/boxes.png" alt="">
+                    <span>ALL PRODUCTS</span>
+                </a>
+
+                <a href="./src/pages/comments.html" class="navigation__link">
+                    <img src="./src/img/comments.png" alt="">
+                    <span>COMMENTS</span>
+                </a>
+
+                <a href="./src/pages/moderators.html" class="navigation__link">
+                    <img src="./src/img/person.png" alt="">
+                    <span>MODERATORS</span>
+                </a>
+
+                <a href="./src/pages/orders.html" class="navigation__link">
+                    <img src="./src/img/orders.png" alt="">
+                    <span>ORDERS</span>
+                </a>
+
+                <a href="#" class="navigation__link logout-btn">
+                    <img src="./src/img/go-out.png" alt="">
+                    <span>GO OUT</span>
+                </a>
+
+            </nav>
+                <div class="main__content">
+                    <section class="main__section products">
+                        <div class="products__card">
+							<div class="row">
+								<div class="products__card-info">
+									<img src="./src/img/sneaker.jpg" alt="">
+									<div class="products__card-descr">
+										<h3>Title</h3>
+										<p>Description</p>
+										<p>Price</p>
+									</div>
+								</div>
+								<div class="products__card-control">
+									<button>DELETE</button>
+									<button>EDIT</button>
+								</div>
+							</div>
+						</div>
+
+                        <div class="products__card">
+							<div class="row">
+								<div class="products__card-info">
+									<img src="./src/img/sneaker.jpg" alt="">
+									<div class="products__card-descr">
+										<h3>Title</h3>
+										<p>Description</p>
+										<p>Price</p>
+									</div>
+								</div>
+								<div class="products__card-control">
+									<button>DELETE</button>
+									<button>EDIT</button>
+								</div>
+							</div>
+						</div>
+
+                    </section>
+                </div>
+
+        </div>
+     </div>
+
+    </main>
+<!-- ---------------------------------------------MODAL---------------------------------------------------------------- -->
+     <div class="modal__edit-prod">
+        <div class="modal__edit-window">
+            <div class="modal__edit-close">
+                <button >x</button>
+            </div>
+
+            <div class="row">
+
+                <div class="edit__window-items">
+    
+                 <div class="window__item">
+                    <h4>Title:</h4>
+                    <input type="text" placeholder="Enter text!">
+                 </div>
+                 <div class="window__item">
+                    <h4>Description:</h4>
+                    <textarea placeholder="Enter text!"></textarea>
+                 </div>
+    
+                 <div class="window__item">
+                    <h4>Price:</h4>
+                    <input type="text" placeholder="Enter text!">
+                 </div>
+    
+                </div>
+    
+                <div class="edit__window-items">
+                    <div class="window__item">
+                        <h4>Price:</h4>
+                        <input type="text" placeholder="Enter text!">
+                     </div>
+                     <div class="window__item">
+                        <h4>Discount value:</h4>
+                        <input type="text" placeholder="Enter text!">
+                     </div>
+                     <div class="window__item">
+                        <h4>Image:</h4>
+                        <input type="text" placeholder="Choose a picture!">
+                     </div>
+                     
+                         <div class="modal__btns">
+                            <div class="row">
+                                <div class="top">
+                                    <h4>TOP:</h4>
+                                    <button>off</button>
+                                    <button>on</button>
+                                </div>
+        
+                                <div class="top">
+                                    <h4>Discount:</h4>
+                                    <button>off</button>
+                                    <button>on</button>
+                                </div>
+    
+                            </div>
+                         </div>
+                </div>
+
+            </div>
+
+
+               <div class="modal__confirm-swipper">
+                <button class="modal__confirm-btn">Confirm</button>
+
+               </div>
+        </div>
+
+
+     </div>
+
+     <script type="module" src="./src/script/verification.js"></script>
+
+     <script type="module" src="./script.js"></script>
+    
+</body>
+</html>

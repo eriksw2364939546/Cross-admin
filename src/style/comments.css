@@ -1,0 +1,33 @@
+.comments__card{
+    background: rgba(148, 148, 148, 0.718);
+    padding: 5px 10px 5px 10px;
+
+}
+
+
+.main__section.comments{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment__card-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+
+.comment__card-header button{
+    width: 100px;
+    cursor: pointer;
+    background: red;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 5px 0;
+    cursor: pointer;
+    border: none;
+}
+

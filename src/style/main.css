@@ -1,0 +1,52 @@
+.main__box{
+    display: flex;
+}
+
+.navigation{
+	width: 243px;
+    background: black;
+    height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    padding: 30px 20px 20px 20px;
+    gap: 15px;
+}
+
+.navigation__link{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.navigation__link img{
+    width: 30px;
+    height: 30px;
+}
+
+.navigation__link:last-child{
+    margin-top: auto;
+}
+
+.navigation__link span{
+    color: white;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.main__content{
+	padding: 30px 40px;
+	width: 100%;
+	max-height: calc(100vh - 70px);
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.main__content::-webkit-scrollbar{
+	background: rgb(255, 255, 255);
+	width: 8px;
+}
+
+.main__content::-webkit-scrollbar-thumb{
+	background: rgb(0, 0, 0);
+}

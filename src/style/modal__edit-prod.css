@@ -1,0 +1,92 @@
+.modal__edit-prod{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.593);
+    width: 100%;
+    height: 100vh;
+    transition: all 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    z-index: -1;
+}
+
+.modal__edit-active{
+    opacity: 1;
+    z-index: 1;
+}
+
+.modal__edit-window{
+    padding: 30px;
+    color: black;
+    border-radius: 15px;
+    width: 860px;
+    height: fit-content;
+    background: rgb(205, 205, 205);
+    transition: all 0.2s;
+    box-shadow: 0px 1px 3px 1px black;
+    transform: scale(0.1);
+}
+
+.modal__edit-active .modal__edit-window{
+transform: scale(1);
+}
+
+.modal__edit-window .row{
+    align-items: start;
+}
+.window__item input{
+    width: 390px;
+    height: 35px;
+    padding-left: 7px;
+    border-radius: 5px;
+    border: none;
+}
+.window__item textarea{
+    width: 390px;
+    height: 99px;
+    padding-left: 7px;
+    border-radius: 5px;
+   border: none;
+}
+
+.modal__edit-prod h4{
+margin: 5px 0;
+}
+.modal__edit-close{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal__edit-window button{
+    background: black;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.modal__btns button{
+    width: 88px;
+    height: 35px;
+}
+.modal__edit-close button{
+    border-radius: 5px;
+    font-size: 20px;
+     background: transparent;
+     border: none;
+     color: black;
+     font-weight: 700;
+}
+.modal__confirm-swipper{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+.modal__confirm-btn{
+    background: black;
+    width: 262px;
+    height: 35px;
+}
+

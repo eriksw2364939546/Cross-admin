@@ -1,0 +1,115 @@
+.moderators__card{
+    background: rgba(148, 148, 148, 0.718);
+    padding: 10px 10px 10px 10px;
+
+}
+
+.moderators{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+
+.moderators__card button{
+    width: 100px;
+    cursor: pointer;
+    background: black;
+    color: white;
+    font-size: 16px;
+    padding: 5px 0;
+    cursor: pointer;
+    border: none;
+
+}
+.moderators__card-buttons{
+    display: flex;
+    gap: 10px;
+}
+/* ----------------------------- MODAL ------------------------------- */
+
+.moderators__modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.341);
+    transition: all 0.2s;
+    z-index: -2;
+    opacity: 0;
+}
+
+.moderators__active{
+    opacity: 1;
+    z-index: 1;
+}
+
+.moderators__modal-window{
+    padding: 20px 30px;
+    width: 415px;
+    height: 466px;
+    border-radius: 7px;
+    background: white;
+    color: black;
+    transition: all 0.2s;
+    transform: scale(0.1);
+}
+
+.moderators__active .moderators__modal-window{
+    transform: scale(1);
+}
+
+
+
+
+.modal__window-items{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+.moderators__modal-item{
+    width: 100%;
+}
+
+.moderators__modal-item p{
+    margin-bottom: 10px;
+}
+
+.moderators__modal-item input{
+    width: 100%;
+    height: 35px;
+    background: rgba(162, 162, 162, 0.521);
+    padding-left: 7px;
+    border: none;
+}
+
+.moder__modal-close{
+    display: flex;
+    justify-content: flex-end;
+}
+.moder__modal-close button{
+border: none;
+background: transparent;
+font-size: 25px;
+cursor: pointer;
+}
+
+.modal__window-items button{
+width: 100%;
+height: 35px;
+background: black;
+color: white;
+border: none;
+cursor: pointer;
+}
