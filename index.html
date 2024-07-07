@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
+	<meta name="viewport" content="width=\, initial-scale=1.0">
     <title>ADMIN-CROSS.COM</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./src/style/header.css">
@@ -72,7 +72,7 @@
             </nav>
                 <div class="main__content">
                     <section class="main__section products">
-                        <div class="products__card">
+                        <!-- <div class="products__card">
 							<div class="row">
 								<div class="products__card-info">
 									<img src="./src/img/sneaker.jpg" alt="">
@@ -104,7 +104,7 @@
 									<button>EDIT</button>
 								</div>
 							</div>
-						</div>
+						</div> -->
 
                     </section>
                 </div>
@@ -120,59 +120,63 @@
                 <button >x</button>
             </div>
 
-            <div class="row">
-
-                <div class="edit__window-items">
+            <form>
+                <div class="row">
     
-                 <div class="window__item">
-                    <h4>Title:</h4>
-                    <input type="text" placeholder="Enter text!">
-                 </div>
-                 <div class="window__item">
-                    <h4>Description:</h4>
-                    <textarea placeholder="Enter text!"></textarea>
-                 </div>
-    
-                 <div class="window__item">
-                    <h4>Price:</h4>
-                    <input type="text" placeholder="Enter text!">
-                 </div>
-    
-                </div>
-    
-                <div class="edit__window-items">
-                    <div class="window__item">
-                        <h4>Price:</h4>
-                        <input type="text" placeholder="Enter text!">
-                     </div>
-                     <div class="window__item">
-                        <h4>Discount value:</h4>
-                        <input type="text" placeholder="Enter text!">
-                     </div>
-                     <div class="window__item">
-                        <h4>Image:</h4>
-                        <input type="text" placeholder="Choose a picture!">
-                     </div>
-                     
-                         <div class="modal__btns">
-                            <div class="row">
-                                <div class="top">
-                                    <h4>TOP:</h4>
-                                    <button>off</button>
-                                    <button>on</button>
-                                </div>
+                    <div class="edit__window-items">
         
-                                <div class="top">
-                                    <h4>Discount:</h4>
-                                    <button>off</button>
-                                    <button>on</button>
-                                </div>
-    
-                            </div>
+                     <div class="window__item">
+                        <h4>Title:</h4>
+                        <input class="modal__edit-title" type="text" placeholder="Enter text!">
+                     </div>
+                     <div class="window__item">
+                        <h4>Description:</h4>
+                        <textarea class="modal__edit-descr" placeholder="Enter text!"></textarea>
+                     </div>
+        
+                     <div class="window__item">
+                        <h4>Price:</h4>
+                        <input class="modal__edit-price" type="text" placeholder="Enter text!">
+                     </div>
+        
+                    </div>
+        
+                    <div class="edit__window-items">
+                        <div class="window__item">
+                            <h4>Category:</h4>
+                            <input class="modal__edit-category" type="text" placeholder="Enter text!">
                          </div>
+                         <div class="window__item">
+                            <h4>Discount value:</h4>
+                            <input  class="modal__edit-disc-val"type="text" placeholder="Enter text!">
+                         </div>
+                         <div class="window__item">
+                            <h4>Image:</h4>
+                            <input class="modal__edit-image" type="text" placeholder="Choose a picture!">
+                         </div>
+                         
+                             <div class="modal__btns">
+                                <div class="row">
+                                    <div class="top">
+                                        <h4>TOP:</h4>
+                                        <button>off</button>
+                                        <button>on</button>
+                                    </div>
+            
+                                    <div class="top">
+                                        <h4>Discount:</h4>
+                                        <button>off</button>
+                                        <button>on</button>
+                                    </div>
+        
+                                </div>
+                             </div>
+                    </div>
+    
                 </div>
 
-            </div>
+            </form>
+
 
 
                <div class="modal__confirm-swipper">
@@ -183,9 +187,8 @@
 
 
      </div>
-
+     <script type="module" src="./src/script/products.js"></script>
      <script type="module" src="./src/script/verification.js"></script>
-
      <script type="module" src="./script.js"></script>
     
 </body>

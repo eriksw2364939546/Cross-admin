@@ -1,5 +1,17 @@
 import{ADMIN_URL, PUBLIC_URL} from "./key.js"
 
+
+async function publicData(route, param = "" ){
+    try {
+        let res = await fetch(`${PUBLIC_URL + route}?${param}`)
+        let data = await res.json()
+        return data
+    } catch (error) {
+        return error
+        
+    }
+}
+
 async function authUser (infoUser){
     try {
         let res = await fetch(`${ADMIN_URL}?login=${infoUser.login}&pass=${infoUser.password}`)
@@ -28,4 +40,12 @@ function getUser(){
     return null
 }
 
-export {authUser, saveUser , getUser}
+function openModal(modal,className){
+    modal.classList.add(className)
+}
+
+function closeModal(modal,className){
+    modal.classList.remove(className)
+}
+
+export {authUser, saveUser , getUser,publicData ,closeModal, openModal}
