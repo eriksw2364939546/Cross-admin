@@ -27,6 +27,50 @@ async function authUser (infoUser){
     }
 }
 
+async function postNewCard(option, route , newDate){
+     try {
+        let resUrl = (option === "public" ? PUBLIC_URL : ADMIN_URL) + route
+        let res = await fetch( resUrl, {
+            method: 'POST',
+            headers: {'content-type':'application/json'},
+            body: JSON.stringify(newDate)
+        })
+        let date  = await res.json()
+        return date
+     } catch (error) {
+        return error
+     }
+}
+
+async function updateCurrCard(option , route ,cardId ,newDate ){
+    try {
+        let resUrl = (option === "public" ? PUBLIC_URL : ADMIN_URL) + route + "/" + cardId
+        let res = await fetch( resUrl, {
+            method: 'PUT',
+            headers: {'content-type':'application/json'},
+            body: JSON.stringify(newDate)
+        })
+        let date  = await res.json()
+        return date
+     } catch (error) {
+        return error
+     }
+}
+
+async function deleteCurrCard(option , route , cardId){
+    try {
+        let resUrl = (option === "public" ? PUBLIC_URL : ADMIN_URL) + route + "/" + cardId
+        let res = await fetch(resUrl , {
+            method: 'DELETE'
+        })
+        let data = await res.json()
+        return data
+        
+    } catch (error) {
+        return error
+    }
+}
+
 
 function saveUser ( user ){
     localStorage.setItem("admin-cross-user", JSON.stringify(user))
@@ -48,4 +92,4 @@ function closeModal(modal,className){
     modal.classList.remove(className)
 }
 
-export {authUser, saveUser , getUser,publicData ,closeModal, openModal}
+export {authUser, saveUser , getUser,publicData ,closeModal, openModal, postNewCard , updateCurrCard , deleteCurrCard}

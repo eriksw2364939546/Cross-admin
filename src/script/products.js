@@ -1,4 +1,4 @@
-import{publicData , openModal , closeModal} from "./service.js"
+import{publicData , openModal , closeModal , postNewCard , updateCurrCard , deleteCurrCard} from "./service.js"
 
 let productsList = document.querySelector("section.products")
 let modalEditProd = document.querySelector(".modal__edit-prod")
@@ -15,6 +15,8 @@ let modalInpImage = document.querySelector(".modal__edit-image")
 
 let formPozition = ""
 
+let editCardId = null
+
 
 
 publicData("Products").then(data => renderProducts(data))
@@ -28,23 +30,32 @@ modalHeaderAdd.addEventListener("click", () => {
 
 modalCloseProd.addEventListener("click", () => {
 	closeModal(modalEditProd, "modal__edit-active")
+	clearForm()
+	
+})
+
+function clearForm(){
 	modalInpTitle.value = ""
 	modalInpDescrTextaria.value = ""
 	modalInpPrice.value = ""
 	modalInpCategory.value = ""
 	modalInpDiscVal.value = ""
 	modalInpImage.value = ""
-	
-})
+}
 
 productsList.addEventListener("click", (event) => {
 	let trg = event.target
 	
 	let cardId = trg.closest(".products__card-control").dataset.id
+	editCardId = cardId
+	
 
 
 	if(trg.closest(".products__card-del")){
+    deleteCurrCard("public", "Products", cardId).then(() => {
 
+    publicData("Products").then(data => renderProducts(data))
+	})
 
 	}
 	if(trg.closest(".products__card-edit")){
@@ -65,12 +76,34 @@ productsList.addEventListener("click", (event) => {
 prodForm.addEventListener("submit", (e) => {
 	e.preventDefault()
 
+	let newCard = {
+		image: modalInpImage.value,
+		title: modalInpTitle.value,
+		descr: modalInpDescrTextaria.value,
+		price: modalInpPrice.value,
+		discount: false,
+		discountValue: modalInpDiscVal.value,
+		top: false,
+		category: modalInpCategory.value,	
+	}
+
 	if(formPozition === "adder"){
-		alert("Add new card!")
+       postNewCard("public","Products", newCard).then(() => {
+		closeModal(modalEditProd, "modal__edit-active")
+		clearForm()
+		publicData("Products").then(data => renderProducts(data))
+
+	   })
 	}
 
 	if (formPozition === "editor") {
-		alert("Edit current card!")
+
+		updateCurrCard("public", "Products", editCardId , newCard).then(() => {
+		closeModal(modalEditProd, "modal__edit-active")
+		clearForm()
+		publicData("Products").then(data => renderProducts(data))
+
+		})
 	}
 })
 
