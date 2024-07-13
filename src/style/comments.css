@@ -17,6 +17,13 @@
     width: 100%;
 }
 
+.comment{
+    padding: 5px 0;
+    background: rgb(220, 220, 220);
+    margin: 5px 0;
+    border-radius: 0 5px 5px 0;
+}
+
 
 
 .comment__card-header button{

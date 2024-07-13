@@ -50,6 +50,7 @@ transform: scale(1);
     padding-left: 7px;
     border-radius: 5px;
    border: none;
+   resize: none;
 }
 
 .modal__edit-prod h4{
@@ -67,6 +68,38 @@ margin: 5px 0;
     border: none;
     cursor: pointer;
 }
+
+/* ----------------------------------- */
+
+.modal__btns label{
+    width: 88px;
+    height: 35px;
+    border: none;
+    background: black;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    line-height: 35px;
+    display: block;
+    opacity: 0.4;
+}
+
+.modal__btns input:checked + label{
+    opacity: 1;
+}
+
+.modal__btns input{
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+.modal__btns .row{
+    gap: 5px;
+}
+
+/* -------------------------------------------------------- */
+
+
 .modal__btns button{
     width: 88px;
     height: 35px;

@@ -1,4 +1,4 @@
-import{publicData , openModal , closeModal , postNewCard , updateCurrCard , deleteCurrCard} from "./service.js"
+import{getPublicData , openModal , closeModal , postNewCard , updateCurrCard , deleteCurrCard} from "./service.js"
 
 let productsList = document.querySelector("section.products")
 let modalEditProd = document.querySelector(".modal__edit-prod")
@@ -13,13 +13,16 @@ let modalInpCategory = document.querySelector(".modal__edit-category")
 let modalInpDiscVal = document.querySelector(".modal__edit-disc-val")
 let modalInpImage = document.querySelector(".modal__edit-image")
 
+let modalInpRadioTopOn = document.querySelector("#prod-top-on")
+let modalInpRadioDiscOn = document.querySelector("#prod-disc-on")
+
 let formPozition = ""
 
 let editCardId = null
 
 
 
-publicData("Products").then(data => renderProducts(data))
+getPublicData("Products").then(data => renderProducts(data))
 
 
 
@@ -54,13 +57,13 @@ productsList.addEventListener("click", (event) => {
 	if(trg.closest(".products__card-del")){
     deleteCurrCard("public", "Products", cardId).then(() => {
 
-    publicData("Products").then(data => renderProducts(data))
+	getPublicData("Products").then(data => renderProducts(data))
 	})
 
 	}
 	if(trg.closest(".products__card-edit")){
 		formPozition = "editor"
-		publicData(`Products/${cardId}`).then(data => {
+		getPublicData(`Products/${cardId}`).then(data => {
 			modalInpTitle.value = data.title
 			modalInpDescrTextaria.value = data.descr
 			modalInpPrice.value = data.price
@@ -76,14 +79,17 @@ productsList.addEventListener("click", (event) => {
 prodForm.addEventListener("submit", (e) => {
 	e.preventDefault()
 
+	let prodTopOn = modalInpRadioTopOn.checked ? true : false
+	let prodDiscOn = modalInpRadioDiscOn.checked ? true : false
+
 	let newCard = {
 		image: modalInpImage.value,
 		title: modalInpTitle.value,
 		descr: modalInpDescrTextaria.value,
 		price: modalInpPrice.value,
-		discount: false,
+		discount: prodDiscOn,
 		discountValue: modalInpDiscVal.value,
-		top: false,
+		top: prodTopOn,
 		category: modalInpCategory.value,	
 	}
 
@@ -91,7 +97,7 @@ prodForm.addEventListener("submit", (e) => {
        postNewCard("public","Products", newCard).then(() => {
 		closeModal(modalEditProd, "modal__edit-active")
 		clearForm()
-		publicData("Products").then(data => renderProducts(data))
+		getPublicData("Products").then(data => renderProducts(data))
 
 	   })
 	}
@@ -101,7 +107,7 @@ prodForm.addEventListener("submit", (e) => {
 		updateCurrCard("public", "Products", editCardId , newCard).then(() => {
 		closeModal(modalEditProd, "modal__edit-active")
 		clearForm()
-		publicData("Products").then(data => renderProducts(data))
+		getPublicData("Products").then(data => renderProducts(data))
 
 		})
 	}
