@@ -1,6 +1,16 @@
 import{ADMIN_URL, PUBLIC_URL} from "./key.js"
 
 
+async function getAdmins(){
+    try {
+        let res = await fetch(ADMIN_URL)
+        let data = await res.json()
+        return data
+    } catch (error) {
+        return error
+    }
+}
+
 async function getPublicData(route, param = "" ){
     try {
         let res = await fetch(`${PUBLIC_URL + route}?${param}`)
@@ -92,4 +102,4 @@ function closeModal(modal,className){
     modal.classList.remove(className)
 }
 
-export {authUser, saveUser , getUser,getPublicData ,closeModal, openModal, postNewCard , updateCurrCard , deleteCurrCard}
+export {authUser, saveUser , getUser,getPublicData ,closeModal, openModal, postNewCard , updateCurrCard , deleteCurrCard, getAdmins}

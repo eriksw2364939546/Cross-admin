@@ -10,6 +10,17 @@
     gap: 10px;
 }
 
+.moderators__card-header{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.moderators__card-header p{
+    font-weight: 600;
+}
+
+
+
 
 
 .moderators__card button{
