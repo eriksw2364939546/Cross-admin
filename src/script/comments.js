@@ -10,10 +10,13 @@ containerForComments.addEventListener("click", (ev) => {
     let cardId = ev.target.closest(".comment__card-header").dataset.id
 
     if(ev.target.closest(".comment__card-delete")){
-     deleteCurrCard("public", "Comments", cardId).then(() => {
-     
-     getPublicData("Comments").then(data => renderComments(data))
-     })
+      let isDelete = confirm("This comment will be deleted!")
+
+      if(isDelete){
+          deleteCurrCard("public", "Comments", cardId).then(() => {
+          getPublicData("Comments").then(data => renderComments(data))
+          })
+      }
     }
 })
 

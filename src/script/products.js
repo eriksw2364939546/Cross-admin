@@ -16,6 +16,9 @@ let modalInpImage = document.querySelector(".modal__edit-image")
 let modalInpRadioTopOn = document.querySelector("#prod-top-on")
 let modalInpRadioDiscOn = document.querySelector("#prod-disc-on")
 
+let modalInpRadioTopOff = document.querySelector("#prod-top-off")
+let modalInpRadioDiscOff = document.querySelector("#prod-disc-off")
+
 let formPozition = ""
 
 let editCardId = null
@@ -29,6 +32,8 @@ getPublicData("Products").then(data => renderProducts(data))
 modalHeaderAdd.addEventListener("click", () => {
     openModal(modalEditProd, "modal__edit-active")
 	formPozition = "adder"
+	modalInpRadioTopOff.checked = true
+	modalInpRadioDiscOff.checked = true
 })
 
 modalCloseProd.addEventListener("click", () => {
@@ -55,10 +60,15 @@ productsList.addEventListener("click", (event) => {
 
 
 	if(trg.closest(".products__card-del")){
-    deleteCurrCard("public", "Products", cardId).then(() => {
+     let isDelete = confirm("This product will be deleted!")
 
-	getPublicData("Products").then(data => renderProducts(data))
-	})
+	 if(isDelete){
+		deleteCurrCard("public", "Products", cardId).then(() => {
+		getPublicData("Products").then(data => renderProducts(data))
+		})
+	 }
+
+
 
 	}
 	if(trg.closest(".products__card-edit")){
@@ -70,6 +80,18 @@ productsList.addEventListener("click", (event) => {
 			modalInpCategory.value = data.category
 			modalInpDiscVal.value = data.discountValue
 			modalInpImage.value = data.image
+
+			if(data.top){
+				modalInpRadioTopOn.checked = true
+			}else{
+				modalInpRadioTopOff.checked = true
+			}
+
+			if(data.discount){
+				modalInpRadioDiscOn.checked = true
+			}else{
+				modalInpRadioDiscOff.checked = true
+			}
 		})
 		openModal(modalEditProd, "modal__edit-active")
 		

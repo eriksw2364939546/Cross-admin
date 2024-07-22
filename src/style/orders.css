@@ -12,8 +12,6 @@
 .orders__card button{
     width: 280px;
     height: 30px;
-    background: black;
-    color: white;
     cursor: pointer;
     border: none;
 }
@@ -62,3 +60,11 @@
 .orders__card:nth-of-type(3) .row span{
     background: red;
   }
+
+.orders__card ul{
+  padding: 5px 0 5px 17px;
+}
+.orders__card li{
+  font-weight: 500;
+
+}

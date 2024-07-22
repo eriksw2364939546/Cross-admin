@@ -1,15 +1,36 @@
-import{ADMIN_URL, PUBLIC_URL} from "./key.js"
+import{ADMIN_URL, PUBLIC_URL , ADM_URL_ORDERS} from "./key.js"
 
-
-async function getAdmins(){
+async function getOrders(ordId = ""){
     try {
-        let res = await fetch(ADMIN_URL)
+        let resUrl = ADM_URL_ORDERS
+        if(ordId){
+            resUrl += `/${ordId}`
+        }
+        let res  = await fetch(resUrl)
         let data = await res.json()
         return data
     } catch (error) {
         return error
     }
 }
+
+
+async function getAdmins(adminId = ""){
+    try {
+        let resUrl = ADMIN_URL
+        if(adminId){
+            resUrl += `/${adminId}`
+        }
+        let res = await fetch(resUrl)
+        let data = await res.json()
+        return data
+    } catch (error) {
+        return error
+    }
+}
+
+
+
 
 async function getPublicData(route, param = "" ){
     try {
@@ -102,4 +123,4 @@ function closeModal(modal,className){
     modal.classList.remove(className)
 }
 
-export {authUser, saveUser , getUser,getPublicData ,closeModal, openModal, postNewCard , updateCurrCard , deleteCurrCard, getAdmins}
+export {authUser, saveUser , getUser,getPublicData ,closeModal, openModal, postNewCard , updateCurrCard , deleteCurrCard, getAdmins, getOrders}
