@@ -9,35 +9,32 @@ getOrders().then(data => renderOrders(data))
 
 
 
-function renderOrders(array){
-    ordersList.innerHTML = ""
+function renderOrders(array) {
+	ordersList.innerHTML = ""
 
-    let products = ""
-      
+	array.forEach(order => {
+        let products = ""
 
-    array.forEach(order => {
+		order.products.forEach(prod => {
+			products += `<li>Product id ${prod.productId} - ${prod.count} pcs</li>`
+		})
 
-        order.products.forEach(prod => {
-            products += `<li>Product id ${prod.productId} - ${prod.count} pcs</li>`
-        })
-
-        
-        ordersList.innerHTML += `
+		ordersList.innerHTML += `
                                    <div class="orders__card" data-id="${order.id}">
                             <div class="row">
                             <div class="order__swiper">
+									 		<h3>Client</h3>
                                 <p>${order.userName}<br></p> 
                                 <p>${order.adres}</p>
                                 <p>${order.telephone}</p>
                                 <p>${order.email}</p>
-                                <ul>
-                                ${products}
-                                </ul>
-                                <p>Fool price - ${order.allPrice} $</p>
+										  <h3>Products</h3>
+										  <ul>
+										 	${products} 
+										  </ul>
+                                <h3>Full price - ${order.allPrice} $</h3>
                             </div>
-
                             </div>
-
                             <div class="row">
                                 <span>Completed</span>
 
@@ -50,5 +47,5 @@ function renderOrders(array){
                            </div>
         
         `
-    })
+	});
 }
