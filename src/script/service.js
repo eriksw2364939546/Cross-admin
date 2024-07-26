@@ -1,5 +1,20 @@
 import{ADMIN_URL, PUBLIC_URL , ADM_URL_ORDERS} from "./key.js"
 
+async function updateOrders(orderId , newData){
+    try {
+        let res = await fetch( ADM_URL_ORDERS + "/" + orderId, {
+            method: 'PUT',
+            headers: {'content-type':'application/json'},
+            body: JSON.stringify(newData)
+        })
+        let data = await res.json()
+        return data
+        
+    } catch (error) {
+        return error
+    }
+}
+
 async function getOrders(ordId = ""){
     try {
         let resUrl = ADM_URL_ORDERS
@@ -123,4 +138,4 @@ function closeModal(modal,className){
     modal.classList.remove(className)
 }
 
-export {authUser, saveUser , getUser,getPublicData ,closeModal, openModal, postNewCard , updateCurrCard , deleteCurrCard, getAdmins, getOrders}
+export {authUser, saveUser , getUser,getPublicData ,closeModal, openModal, postNewCard , updateCurrCard , deleteCurrCard, getAdmins, getOrders, updateOrders}
